@@ -35,13 +35,13 @@ class  group{
 
         $result = array();
         while($row = mysqli_fetch_array($rows)) {
-            $result[] = $row;
+            $result[] = $row[0];
         }
 
-        $result = array();
-        foreach ($rows as $k =>$v){
-            $result[] = $v[$level_arr[$next]];
-        }
+        //$result = array();
+//        foreach ($rows as $k =>$v){
+//            $result[] = $v[$level_arr[$next]];
+//        }
 
         print json_encode(array('code'=>0, 'desc'=>'', 'result'=>$result, 'sql'=>$sql));
     }

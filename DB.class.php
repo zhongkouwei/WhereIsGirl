@@ -12,6 +12,10 @@ Class DB {
 		
 	}
 
+	private function _clone() {
+
+	}
+
 
 	public static function getInstance() {
 		if (!isset(self::$Instance)) {
@@ -22,12 +26,13 @@ Class DB {
 	}
 
 	public function getCon(){
-		$con = mysqli_connect('localhost', 'root', $DB_PASSWORD);
+		$con = mysqli_connect('localhost', 'root', '12345');
 		if (!$con)
  		{
-  			die('Could not connect: ' . mysql_error());
+  			die('Could not connect: ' . mysqli_error());
+  			return false;
  		}
-		mysqli_select_db($con, 'pachong');
+		mysqli_select_db($con, 'course');
 		return $con;
 	}
 

@@ -7,27 +7,38 @@
  */
 include "../Db.class.php";
 
-class main {
+class  main{
 
     private $client;
-    public function _construct()
+
+    public function __construct()
     {
-        $this->client = DB::getInstance()->getCon();
-        if (!$this->client)
+       $this->client = DB::getInstance()->getCon();
+       if (!$this->client)
         {
-            die('Could not connect: ' . mysqli_error($this->client));
+            die('Could not connect: ' . mysqli_error());
         }
-        mysqli_select_db($this->client, 'Course');
     }
 
-    public function get_data()
+    function get_data()
     {
+        $level = $_REQUEST['level'];
+        $name  = $_REQUEST['name'];
+        $year = $_REQUEST['year'];
 
-        $result = array();
-        return json_encode(array('code'=>0, 'desc'=>'', 'result'=>$result));
+        $level_arr = ['year', 'position', 'college', 'major', 'class', 'score'];
+
+        $sql = "SELECT sex, COUNT(*) num FROM students WHERE year ='$year' and $level_arr[$level] = '$name' GROUP BY sex";
+        $result = mysqli_query($this->client, $sql)->fetch_all();
+        
+        print json_encode(array('code'=>0, 'desc'=>'', 'result'=>$result,'sql'=>$sql));
     }
 
 }
+
+
+$Main = new main();
+$Main->get_data();
 
 
 

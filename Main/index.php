@@ -5,7 +5,7 @@
  * Date: 2017/9/12
  * Time: 11:50
  */
-include "../Db.class.php";
+include "../DB.class.php";
 
 class  main{
 
@@ -29,7 +29,12 @@ class  main{
         $level_arr = ['year', 'position', 'college', 'major', 'class', 'score'];
 
         $sql = "SELECT sex, COUNT(*) num FROM students WHERE year ='$year' and $level_arr[$level] = '$name' GROUP BY sex";
-        $result = mysqli_query($this->client, $sql)->fetch_all();
+        $rows = mysqli_query($this->client, $sql);
+
+        $result = array();
+        while($row = mysqli_fetch_array($rows)) {
+            $result[] = $row;
+        }
         
         print json_encode(array('code'=>0, 'desc'=>'', 'result'=>$result,'sql'=>$sql));
     }

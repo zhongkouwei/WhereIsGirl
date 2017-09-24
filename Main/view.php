@@ -174,6 +174,8 @@
 
                 for(var i = level+2; i< 5; i++){
                     $scope.data[$scope.group_arr[i]] = [];
+                }
+                for(var i = level+1; i< 5; i++){
                     $scope.data[$scope.level_arr[i]] = '';
                 }
             }

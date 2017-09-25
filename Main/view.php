@@ -250,9 +250,10 @@
             };
 
             var data = [];
-            data.push({'value':$scope.data.rows[0][1], 'name':$scope.data.rows[0][0]});
-            data.push({'value':$scope.data.rows[1][1], 'name':$scope.data.rows[1][0]})
+            data.push({'value':$scope.data.rows[0][1], 'name':$scope.data.rows[0][0]+': '+$scope.data.rows[0][1]});
+            data.push({'value':$scope.data.rows[1][1], 'name':$scope.data.rows[1][0]+': '+$scope.data.rows[1][1]})
             option['series'][0]['data'] = data;
+            option['legend']['data'] = [$scope.data.rows[0][0]+': '+$scope.data.rows[0][1], $scope.data.rows[1][0]+': '+$scope.data.rows[1][1]];
             myChart.setOption(option);
         }
 

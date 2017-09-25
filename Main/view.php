@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
+    <meta name="description" content="男女比例查看">
     <meta name="author" content="">
     <link rel="icon" href="../Public/woman.ico">
 
@@ -43,13 +43,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Boy And Girl</a>
+            <a class="navbar-brand" href="#">男女比例查看</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a target="_blank" href="https://github.com/zhongkouwei">Contact</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="index.php" method="post">
                 <input type="text" name="search" class="form-control" placeholder="Search...">
@@ -119,7 +119,7 @@
     </div>
     <footer style="">
         <div class="inner">
-            <p>By <a target="_blank" href="https://github.com/zhongkouwei">ZHONGKOUWEI</a></p>
+            <!-- <p>By <a target="_blank" href="https://github.com/zhongkouwei">ZHONGKOUWEI</a></p> -->
         </div>
     </footer>
 </div>
@@ -219,7 +219,7 @@
             var option = {
                 title : {
                     text: $scope.data.name,
-                    subtext: '仅供参考',
+                    subtext: '仅供参考，可点击查看详细比例',
                     x:'center'
                 },
                 tooltip : {
